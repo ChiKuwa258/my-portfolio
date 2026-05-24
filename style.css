@@ -1,0 +1,46 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: #111;
+  color: white;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background: #222;
+}
+
+nav a {
+  color: white;
+  margin-left: 15px;
+  text-decoration: none;
+}
+
+.hero {
+  text-align: center;
+  padding: 180px 20px;
+}
+
+section {
+  padding: 60px 20px;
+}
+
+.card {
+  background: #000000;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+h1{
+    font-size:32px;
+}
+
+h2{
+    font-size: 40px;
+}
