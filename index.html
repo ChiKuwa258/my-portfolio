@@ -187,7 +187,7 @@
 
                 if(index < text.length){
 
-                typing.textContent += text.charAt(index);
+                    typing.textContent += text.charAt(index);
 
                 index++;
 
@@ -200,7 +200,7 @@
 
             const cards = document.querySelectorAll(".card");
 
-            cards.forEach(card => {
+                    cards.forEach(card => {
 
                 card.addEventListener("mousemove", (e) => {
 
@@ -217,9 +217,9 @@
 
                 card.style.transform =
                 `
-                rotateX(${rotateX}deg)
-                rotateY(${rotateY}deg)
-                scale(1.03)
+                    rotateX(${rotateX}deg)
+                    rotateY(${rotateY}deg)
+                    scale(1.03)
                 `;
                 });
 
@@ -243,11 +243,11 @@
 
                 window.addEventListener("scroll", () => {
 
-                    if(window.scrollY > 50){
+            if(window.scrollY > 50){
 
                 header.classList.add("scrolled");
 
-                    }else{
+            }else{
 
                 header.classList.remove("scrolled");
 
