@@ -4,39 +4,58 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Front-End Developer Portfolio</title>
+        <link rel="icon" type="image/png" href="images/favicon.png">
+        
         <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+        
+        <meta
+            name="description"
+            content="Front-End Developer Portfolio site created with HTML, CSS and JavaScript."
+>
     </head>
 
     <body>
 
         <div class="scroll-bar" id="scrollBar"></div>
 
-        <div id="loader">
+        <div id="loader" aria-live="polite">
                 <h1>Loading...</h1>
         </div>
 
         <div class="particles"></div>
 
         <header>
-                <h1>Front-End Developer Portfolio</h1>
-                <nav>
-                <a href="about.html">About</a>
+                <a href="#" class="logo">
+                    Front-End Developer Portfolio
+                </a>
+
+            <nav aria-label="Main Navigation">
+                <a href="#about">About</a>
                 <a href="#works">Works</a>
                 <a href="#contact">Contact</a>
-                <a href="https://github.com/あなたのID"
-                    target="_blank">
-                    GitHub
+                <a href="https://github.com/chikuwa258/TestWeb"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn github-btn">
+
+                GitHub
+
                 </a>
-                </nav>
+            </nav>
         </header>
 
         <section class="hero">
+
                 <h1 id="typing"></h1>
+
                 <p>HTML/CSS/JavaScriptを使用した
                     Front-End Web開発を行っています。
                 </p>
 
-                <a href="#works" class="btn">
+                <a href="#works" class="btn github-btn">
                     View Works
                 </a>
         </section>
@@ -52,58 +71,77 @@
         </section>
 
         <section id="works">
+
                 <h2>Works</h2>
+
             <div class="works-container">
             
             <div class="card hidden">
-                <img src="images/PC.jpg" alt="作品1">
+                <img src="images/PC.jpg" alt="Cafe Landing Page">
 
                 <h3>Cafe Landing Page</h3>
                 <p>レスポンシブ対応のカフェサイト</p>
 
-                <a href="javascript:void(0)"
-                    class="btn"
+                 <button
+                    class="btn github-btn"
                     data-title="Cafe Landing Page"
                     data-text="HTML/CSS/JavaScriptを使用して制作。レスポンシブ対応で、アニメーションも実装しました。">
 
-                    view More
-                </a>
+                    View Details
+
+                </button>
+
                 </div>
 
             <div class="card hidden">
-                <img src="images/カフェ.jpg" alt="作品2">
+                <img src="images/カフェ.jpg" alt="Coffee Shop Website">
 
                 <h3>Coffee Shop Website</h3>
                 <p>レスポンシブ対応のカフェサイト</p>
 
-                <a href="javascript:void(0)"
-                    class="btn"
-                    data-title="Coffee Shop Website"
-                    data-text="HTML/CSS/JavaScriptを使用して制作。
-                    レスポンシブ対応、
-                    スクロールアニメーション、
-                    モーダル実装を行いました。">
+                <a href="https://chikuwa258.github.io/TestWeb/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn github-btn">
 
-                    view More
+                    Live Demo
                 </a>
+
+                <a href="https://github.com/chikuwa258/TestWeb"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn github-btn">
+
+                    GitHub
+             </a>
+
+                <button
+                    class="btn github-btn"
+                    data-title="Coffee Shop Website"
+                    data-text="HTML/CSS/JavaScriptを使用して制作。レスポンシブ対応、スクロールアニメーション、モーダル実装を行いました。">
+
+                    View Details
+
+                </button>
+
                 </div>
 
             <div class="card hidden">
-                <img src="images/game.jpg" alt="作品3">
+
+                <img src="images/game.jpg" alt="Game UI Design">
 
                 <h3>Game UI Design</h3>
                 <p>ゲーム風UIデザインサイト</p>
 
-                <a href="javascript:void(0)"
-                    class="btn"
+                <button
+                    class="btn github-btn"
                     data-title="Game UI Design"
-                    data-text="ゲーム風UIを意識して制作。
-                                ホバーアニメーションや
-                                グラスモーフィズムを取り入れ、
-                                近未来感のあるUIデザインを実装しました。">
+                    data-text="ゲーム風UIを意識して制作。ホバーアニメーションやグラスモーフィズムを取り入れ、近未来感のあるUIデザインを実装しました。">
 
-                    view More
-                </a>
+                    View Details
+
+                </button>
+
                 </div>
 
             </div>
@@ -111,229 +149,38 @@
         </section>
 
         <section id="contact">
+
                 <h2>Contact</h2>
+
                 <p>ご依頼・ご相談はお気軽にご連絡ください。<br>
-                    Email: love1089001@gmail.com
+                    <a href="mailto:love1089001@gmail.com">
+                        love1089001@gmail.com
+                    </a>
                 </p>
+
         </section>
 
         <div class="modal" id="modal">
 
             <div class="modal-content">
-
-            <span class="close">&times;</span>
-
+            <button class="close" aria-label="Close modal">
+                &times;
+            </button>
             <h2 id="modal-title">作品詳細</h2>
-
             <p id="modal-text"></p>
 
             </div>
 
-            </div>
-
-        <script>
-            const modal = document.getElementById("modal");
-
-            const buttons = document.querySelectorAll(".card .btn");
-
-            const close = document.querySelector(".close");
-
-            const modalTitle = document.getElementById("modal-title");
-
-            const modalText = document.getElementById("modal-text");
-
-
-
-            // モーダル表示
-            buttons.forEach(button => {
-
-                button.addEventListener("click", () => {
-
-                    modal.style.display = "flex";
-
-                    modalTitle.textContent =
-                    button.dataset.title;
-
-                    modalText.textContent =
-                    button.dataset.text;
-
-                });
-
-            });
-
-
-
-            // モーダル閉じる
-            close.addEventListener("click", () => {
-
-                modal.style.display = "none";
-
-            });
-
-
-
-            // スクロール演出
-            const targets = document.querySelectorAll(".hidden");
-
-            function showElements() {
-
-                targets.forEach(target => {
-
-                const targetTop =
-                target.getBoundingClientRect().top;
-
-                if(targetTop < window.innerHeight - 100){
-
-                target.classList.add("show");
-
-                    }
-
-                });
-
-            }
-
-            window.addEventListener("scroll", showElements);
-
-            showElements();
-
-            const text = "Front-End Web Developer";
-
-            const typing = document.getElementById("typing");
-
-            let index = 0;
-
-            function typeText(){
-
-                if(index < text.length){
-
-                    typing.textContent += text.charAt(index);
-
-                index++;
-
-                setTimeout(typeText, 100);
-                }
-
-            }
-
-            typeText();
-
-            const cards = document.querySelectorAll(".card");
-
-                    cards.forEach(card => {
-
-                card.addEventListener("mousemove", (e) => {
-
-            const rect = card.getBoundingClientRect();
-
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-
-            const rotateX = -(y - centerY) / 15;
-            const rotateY = (x - centerX) / 15;
-
-                card.style.transform =
-                `
-                    rotateX(${rotateX}deg)
-                    rotateY(${rotateY}deg)
-                    scale(1.03)
-                `;
-                });
-
-                card.addEventListener("mouseleave", () => {
-
-                card.style.transform =
-                    "rotateX(0) rotateY(0) scale(1)";
-                });
-
-            });
-
-            const light = document.querySelector(".cursor-light");
-                document.addEventListener("mousemove", (e) => {
-
-                light.style.left = e.clientX + "px";
-                light.style.top = e.clientY + "px";
-
-            });
-
-            const header = document.querySelector("header");
-
-                window.addEventListener("scroll", () => {
-
-            if(window.scrollY > 50){
-
-                header.classList.add("scrolled");
-
-            }else{
-
-                header.classList.remove("scrolled");
-
-                    }
-
-            });
-
-            // ローディング解除
-                window.addEventListener("load", () => {
-
-            const loader =
-                document.getElementById("loader");
-
-            setTimeout(() => {
-
-                 loader.classList.add("hide");
-
-                }, 1500);
-
-            });
-
-            // スクロール進行バー
-            const scrollBar =
-                document.getElementById("scrollBar");
-
-                window.addEventListener("scroll", () => {
-
-            const scrollTop =
-                document.documentElement.scrollTop;
-
-            const scrollHeight =
-                document.documentElement.scrollHeight -
-                document.documentElement.clientHeight;
-
-            const progress =
-                    (scrollTop / scrollHeight) * 100;
-
-                scrollBar.style.width =
-                progress + "%";
-
-            });
-
-            // ヒーロー背景パララックス
-            const hero =
-                document.querySelector(".hero");
-
-                window.addEventListener("scroll", () => {
-
-            const scrollY = window.scrollY;
-
-                hero.style.backgroundPositionY =
-                scrollY * 0.4 + "px";
-            });
-
-            window.addEventListener("click", (e) => {
-
-                if(e.target === modal){
-
-                    modal.style.display = "none";
-
-                }
-
-            });
-
-        </script>
+        </div>
+
+        <footer>
+            <small>© 2026 Portfolio</small>
+        </footer>
 
         <div class="cursor-light"></div>
 
+        <script src="script.js"></script>
+
     </body>
+
 </html>
