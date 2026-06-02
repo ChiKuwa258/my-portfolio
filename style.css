@@ -71,9 +71,11 @@ nav .btn{
     text-align: center;
     padding: 220px 20px;
     background:
+
     linear-gradient(rgba(0,0,0,0.5),
     rgba(0,0,0,0.7)),
     url("images/夜景.jpeg");
+    
     background-size: cover;
     background-position: center;
     border-radius: 0 0 40px 40px;
