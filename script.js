@@ -193,32 +193,6 @@ const modal = document.getElementById("modal");
 
         });
 
-            // ヒーロー背景パララックス
-            const hero = document.querySelector(".hero");
-
-                    window.addEventListener("scroll", () => {
-
-            const scrollY = window.scrollY;
-
-                if (hero) {
-
-                    hero.style.backgroundPositionY =
-                    scrollY * 0.4 + "px";
-
-                }
-
-            });
-
-            window.addEventListener("click", (e) => {
-
-                if(e.target === modal){
-
-                closeModal();
-
-                }
-
-            });
-
             document.addEventListener("keydown", (e) => {
 
                 if(e.key === "Escape"){
@@ -227,3 +201,19 @@ const modal = document.getElementById("modal");
                 }
 
             });
+
+const hero = document.querySelector(".hero");
+
+if (window.innerWidth > 768) {
+
+    window.addEventListener("scroll", () => {
+
+        const scrollY = window.scrollY;
+
+        if (hero) {
+            hero.style.backgroundPositionY = `${scrollY * 0.4}px`;
+        }
+
+    });
+
+}
