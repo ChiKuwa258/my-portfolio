@@ -1,11 +1,13 @@
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 100px;
+    scrollbar-width:thin;
+    scrollbar-color:#00bfff #111;
 }
 
 body {
     margin: 0;
-    font-family: sans-serif;
+    font-family: "Poppins", sans-serif;
     background:linear-gradient(135deg,#0f0f0f,#1a1a2e,#16213e);
     color: white;
     animation:pageFade 1.5s ease;
@@ -70,8 +72,8 @@ nav .btn{
 .hero{
     text-align: center;
 
-    height: 100vh;
-    padding: 0 20px;
+    min-height:100svh;
+    padding:80px 20px;
 
     display: flex;
     justify-content: center;
@@ -131,12 +133,21 @@ nav .btn{
 }
 
 .hero p{
-    font-size: 20px;
+    font-size: clamp(16px, 4vw, 20px);
     color: #ddd;
+    max-width:700px;
+    margin:20px auto;
 }
 
-section {
-    padding: 120px 40px;
+section{
+    padding:120px 40px;
+    max-width:1200px;
+    margin:0 auto;
+    margin-top:40px;
+}
+
+section+section{
+    margin-top:40px;
 }
 
 .card {
@@ -145,8 +156,9 @@ section {
     -webkit-backdrop-filter: blur(10px);
     padding: 20px;
     border-radius: 20px;
-    width: 300px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    width:100%;
+    max-width:320px;
+    box-shadow: 0 12px 35px rgba(0,0,0,.35);
     animation: fadeUp 0.8s ease forwards;
     border: 1px solid rgba(255,255,255,0.1);
     transform-style: preserve-3d;
@@ -154,9 +166,10 @@ section {
     overflow: hidden;
 
     transition:
-        transform 0.2s ease,
-        box-shadow 0.3s ease,
-        color 0.3s ease;
+        transform .35s,
+        box-shadow .35s,
+        background .35s,
+        color .35s;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -189,18 +202,20 @@ section {
     border-radius: 10px;
     margin-bottom: 15px;
     transform: translateZ(30px);
-    transition: transform 0.5s ease;
+    transition: .35s ease;
 }
 
-h1{
-    font-size:32px;
+.card:hover{
+    transform: translateY(-10px);
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.45);
 }
 
 h2{
-    font-size: 40px;
-    position: relative;
-    display: inline-block;
-    margin-bottom: 50px;
+    font-size:clamp(30px,5vw,40px);
+    position:relative;
+    display:inline-block;
+    margin-bottom:50px;
 }
 
 h2::after{
@@ -208,7 +223,7 @@ h2::after{
     position: absolute;
     left: 0;
     bottom: -10px;
-    width: 60%;
+    width:80px;
     height: 4px;
     background: #00bfff;
     border-radius: 10px;
@@ -230,7 +245,8 @@ h2::after{
     cursor: pointer;
     font-size: 16px;
     width:auto;
-    min-width:220px;
+    min-width:180px;
+    max-width:100%;
     text-align: center;
 
 }
@@ -241,6 +257,10 @@ h2::after{
     box-shadow:
     0 0 10px rgba(0,191,255,0.6),
     0 0 30px rgba(0,191,255,0.5);
+}
+
+.btn:active{
+    transform:scale(.97);
 }
 
 .works-container {
@@ -262,37 +282,6 @@ h2::after{
 .show {
     opacity: 1;
     transform: translateY(0);
-}
-
-@media(max-width:768px){
-
-    section{
-        padding: 80px 20px;
-    }
-
-    .hero h1{
-        font-size: 42px;
-    }
-
-    .hero{
-        padding: 160px 20px;
-    }
-
-    .works-container{
-        flex-direction: column;
-        align-items: center;
-    }
-
-    nav{
-        width: 100%;
-        justify-content: center;
-        margin-top: 10px;
-    }
-
-    header{
-        justify-content: center;
-        text-align: center;
-    }
 }
 
 @keyframes pageFade {
@@ -317,6 +306,8 @@ h2::after{
     justify-content: center;
     align-items: center;
     z-index: 2000;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
 }
 
 .modal-content{
@@ -375,14 +366,15 @@ h2::after{
     }
 }
 
-.card h3,
-.card p,
-.card .btn{
-    transform: translateZ(30px);
+.card h3{
+    transform:translateZ(30px);
+    margin:0 0 10px;
 }
 
+.card p,
 .card .btn{
-    margin-top: 10px;
+    transform:translateZ(30px);
+    margin-top:10px;
 }
 
 .card::before{
@@ -408,7 +400,9 @@ h2::after{
 }
 
 .card:hover img{
-    transform: scale(1.05);
+    transform:translateY(-8px) scale(1.04);
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.45);
 }
 
 header.scrolled{
@@ -482,27 +476,34 @@ header.scrolled{
     box-shadow: 0 0 15px rgba(0,191,255,0.8);
 }
 
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-track{
+    background:#111;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#00bfff;
+    border-radius:999px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:#3ccfff;
+}
+
 *{
     box-sizing: border-box;
 }
 
-@media(max-width:768px){
-
-    .card,
-    .card img,
-    .card h3,
-    .card p,
-    .card .btn{
-        transform: none !important;
-    }
-
-}
-
 .github-btn{
-    padding: 8px 18px;
     border: 1px solid rgba(255,255,255,0.2);
     border-radius: 30px;
     transition: 0.3s;
+    min-width:auto;
+    width:auto;
+    padding:10px 18px;
 }
 
 .github-btn:hover{
@@ -511,23 +512,21 @@ header.scrolled{
     box-shadow: 0 0 20px rgba(0,191,255,0.5);
 }
 
+.github-btn:active{
+    transform: scale(.97);
+}
+
 .logo{
     font-size: 24px;
     font-weight: 700;
     letter-spacing: 1px;
     color: white;
+    text-decoration:none;
+    transition:.3s;
 }
 
-@media (hover: hover) {
-
-    .card:hover {
-        box-shadow: 0 20px 40px rgba(0,191,255,0.3);
-        color: #00bfff;
-        transform:
-            translateY(-10px)
-            scale(1.02);
-    }
-
+.logo:hover{
+    color:#00bfff;
 }
 
 footer{
@@ -547,21 +546,75 @@ footer{
     text-shadow: 0 0 10px rgba(0,191,255,0.8);
 }
 
-@media (max-width:768px){
-
-    .hero{
-        animation: none;
-        background-size: cover;
-        background-position: center;
-    }
-
+a:focus-visible,
+.btn:focus-visible{
+    outline:2px solid #00bfff;
+    outline-offset:4px;
 }
 
 @media (max-width:768px){
+
+    section{
+        padding:80px 20px;
+    }
+
+    header{
+        justify-content:center;
+        text-align:center;
+    }
+
+    nav{
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:12px;
+        width:100%;
+        margin-top:10px;
+    }
+
+    .logo{
+        width:100%;
+        font-size:16px;
+        line-height:1.4;
+        text-align:center;
+    }
+
     .hero{
-        animation: none;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+        min-height:100svh;
+        padding:100px 20px;
+        background-size:cover;
+        background-position:center;
+        background-repeat:no-repeat;
+    }
+
+    .hero h1{
+        font-size:clamp(32px,8vw,42px);
+    }
+
+    .works-container{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .github-btn{
+        width:100%;
+        max-width:180px;
+        min-width:auto;
+    }
+
+    .card,
+    .card img,
+    .card h3,
+    .card p,
+    .card .btn{
+        transform:none !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *{
+        animation:none !important;
+        transition:none !important;
+        scroll-behavior:auto;
     }
 }
